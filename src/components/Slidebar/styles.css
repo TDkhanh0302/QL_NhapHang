@@ -1,0 +1,124 @@
+.slidebar {
+  width: 270px;
+  padding: 3rem 2rem;
+  background: #ffffff;
+  display: inline-block;
+}
+
+.nav {
+  margin-top: 0rem;
+  color: #9e9ea7;
+}
+
+.nav img {
+  margin-left: 1.5rem;
+  width: 145px;
+}
+
+.nav__list {
+  margin-top: 4rem;
+  padding-left: 0;
+}
+
+.nav__item {
+  list-style: none;
+  padding: 1rem 1.5rem;
+  border-radius: 15px;
+  position: relative;
+  margin-bottom: 1rem;
+  color: #9e9ea7;
+}
+
+.nav__item:hover {
+  background: #f7f8fc;
+  cursor: pointer;
+  color: #6326f1;
+}
+
+.nav__item:hover .nav__link {
+  color: #2f2f2ffa;
+  font-weight: 600;
+}
+
+.nav__item i {
+  font-size: 1.7rem;
+  margin-right: 1.5rem;
+}
+
+.nav__link {
+  font-size: 1.6rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: #9e9ea7;
+}
+
+.chat-notification {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 5px;
+  background: #ff672d;
+  color: #ffffff;
+  display: inline-block;
+  text-align: center;
+  padding-top: 0.4rem;
+  position: absolute;
+  right: 1rem;
+}
+
+.nav-bottom {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+}
+
+.admin {
+  height: 6.5rem;
+  border-radius: 10px;
+  background: #f0f0f0;
+  padding: 1rem;
+  position: relative;
+  top: 0px;
+}
+
+.admin__avt {
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: 10px;
+  background: #ff672d;
+  display: inline-block;
+}
+
+.admin__name {
+  position: absolute;
+  top: 1rem;
+  margin-left: 1.5rem;
+  color: #2f2f2ffa;
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+.position {
+  position: absolute;
+  bottom: 1rem;
+  margin-left: 1.5rem;
+  color: #9e9ea7;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.btn-logout {
+  display: block;
+  border: none;
+  background: #0d6efd;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  padding: 1rem 0;
+  margin-top: 1rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.btn-logout:hover {
+  background: #4169e1;
+}
