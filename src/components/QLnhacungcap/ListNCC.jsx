@@ -7,7 +7,6 @@ function ListNCC(props) {
   useEffect(() => {
     getTblNCC();
   }, []);
-  console.log(nhaCungCap);
 
   const [title, setTitle] = useState('Thêm Nhà cung cấp');
 
@@ -34,7 +33,6 @@ function ListNCC(props) {
     let sdt = inputSDT.current.value;
     let email = inputEmail.current.value;
     const listNCC = [...nhaCungCap];
-    console.log('1', listNCC);
 
     if (id && ten && !!listNCC.length) {
       const NCC = getTableId(id, listNCC);
@@ -43,13 +41,12 @@ function ListNCC(props) {
       NCC.sdt = sdt;
       NCC.email = email;
       setNhaCungCap(listNCC);
-      console.log('2', listNCC);
-      writeDataTable(listNCC);
+      writeDataTable(listNCC, 'tblNhaCungCap');
     } else if (ten && diachi && sdt && email) {
       const id = Date.now();
       listNCC.push({ id, ten, diachi, sdt, email });
       setNhaCungCap(listNCC);
-      writeDataTable(listNCC);
+      writeDataTable(listNCC, 'tblNhaCungCap');
     }
 
     idInput.current.value = '';
@@ -60,7 +57,37 @@ function ListNCC(props) {
     setTitle('Thêm nhà cung cấp');
   };
 
-  const removeNCC = () => {};
+  const removeNCC = (item) => {
+    const listNCC = [...nhaCungCap];
+    const arr = listNCC.filter((data) => {
+      return data.id !== item.id;
+    });
+    setNhaCungCap(arr);
+    writeDataTable(arr, 'tblNhaCungCap');
+  };
+
+  const inputSearch = useRef(null);
+
+  const searchNCC = () => {
+    const searchText = inputSearch.current.value.toUpperCase();
+    const result = [];
+    if (searchText !== '') {
+      nhaCungCap?.forEach((item) => {
+        if (item.ten.toUpperCase().includes(searchText) === true) {
+          result.push(item);
+        }
+        if (item.diachi.toUpperCase().includes(searchText) === true) {
+          result.push(item);
+        }
+        // if (item.email.toUpperCase().includes(searchText) === true) {
+        //   result.push(item);
+        // }
+      });
+      setNhaCungCap(result);
+    } else if (searchText === '') {
+      getTblNCC();
+    }
+  };
 
   return (
     <>
@@ -68,8 +95,8 @@ function ListNCC(props) {
         <h2 className="title">Danh sách Nhà cung cấp</h2>
 
         <div className="search-box">
-          <input type="text" name="" id="" />
-          <button>Tìm kiếm</button>
+          <input ref={inputSearch} type="text" name="" id="" />
+          <button onClick={searchNCC}>Tìm kiếm</button>
         </div>
 
         <div className="table-responsive">
@@ -96,7 +123,7 @@ function ListNCC(props) {
                     <a href="#" className="table-icon" onClick={() => handleEditClick(item)}>
                       <i className="fas fa-edit"></i>
                     </a>
-                    <a href="#" className="table-icon" onClick={() => removeNCC()}>
+                    <a href="#" className="table-icon" onClick={() => removeNCC(item)}>
                       <i className="fas fa-trash-alt"></i>
                     </a>
                   </td>
