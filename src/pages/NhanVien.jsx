@@ -1,5 +1,4 @@
 import React from 'react';
-import AddNhanVien from '../components/QLnhanvien/AddNhanVien';
 import ListNhanVien from '../components/QLnhanvien/ListNhanVien';
 import Slidebar from '../components/Slidebar/Slidebar';
 
@@ -8,7 +7,6 @@ function NhanVien(props) {
     <div className="app">
       <Slidebar />
       <ListNhanVien />
-      <AddNhanVien />
     </div>
   );
 }

@@ -75,13 +75,12 @@ const ContextProvider = ({ children }) => {
   };
 
   // download file
-  const downloadFile = (ref) => {
+  const downloadFile = (ref, tagImg) => {
     storage
       .ref(ref)
       .getDownloadURL()
       .then((url) => {
-        var img = document.getElementById('myimg');
-        img.setAttribute('src', url);
+        tagImg.current.setAttribute('src', url);
       })
       .catch((err) => {
         console.log(err);
@@ -93,24 +92,34 @@ const ContextProvider = ({ children }) => {
     storage.ref(ref).delete();
   };
 
-  // const dataNCC = [
+  // const dataTaiKhoan = [
   //   {
   //     id: Date.now(),
-  //     ten: 'kim long',
-  //     diachi: 'Ha Noi',
-  //     sdt: '012345678',
-  //     email: 'kimlong@gmail.com',
+  //     tentaikhoan: 'Trinh Duc Khanh',
+  //     tendangnhap: 'khanh',
+  //     matkhau: 'khanh123',
+  //     loaitaikhoan: 'Quản lý',
   //   },
   // ];
 
   // useEffect(() => {
-  //   writeDataTable(dataNCC, 'tblNhaCungCap');
+  //   writeDataTable(dataTaiKhoan, 'tblTaiKhoan');
   // }, []);
 
   // get Tournament By Id
   const getTableId = (id, table) => {
     return table?.find((item) => item.id == id);
   };
+
+  // const checkDuplicate = (results, item) => {
+  //   console.log('hello');
+  //   console.log(results);
+  //   results?.forEach((result) => {
+  //     if (result.id !== item.id) {
+  //       results.push(item);
+  //     }
+  //   });
+  // };
 
   const ContextData = {
     getTblNCC,
@@ -131,6 +140,9 @@ const ContextProvider = ({ children }) => {
     setNhanVien,
     setTaiKhoan,
     setUserLogged,
+    downloadFile,
+    uploadFile,
+    // checkDuplicate,
     nhaCungCap,
     chauCay,
     loaiChauCay,
