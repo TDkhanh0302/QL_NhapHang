@@ -1,0 +1,88 @@
+.wrap {
+  display: inline-block;
+  width: calc((100% - 270px) * 70 / 100);
+  background: #f7f8fc;
+  padding: 4rem 3rem 0 3rem;
+}
+
+.title {
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.sub-title {
+  font-size: 17px;
+  margin-bottom: 2.5rem;
+}
+
+.sub-title span {
+  color: red;
+}
+
+.search-box input {
+  border: 1px solid #f0f0f0;
+  outline: 1px solid #f0f0f0;
+  height: 3.8rem;
+  border-radius: 10px;
+  padding-left: 1rem;
+  width: 30%;
+  margin-right: 2rem;
+  font-size: 1.5rem;
+}
+
+.search-box button {
+  height: 3.8rem;
+  border: none;
+  background: #0d6efd;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1.5rem;
+  font-weight: 600;
+  padding: 0 1rem;
+}
+
+.search-box button:hover {
+  background: #4169e1;
+}
+
+table {
+  font-size: 1.5rem;
+  background: #fff;
+  margin-top: 4rem;
+}
+
+.table-icon {
+  font-size: 1.8rem;
+}
+
+.table-icon + .table-icon {
+  margin-left: 1.5rem;
+}
+
+.box-add {
+  display: inline-block;
+  width: calc((100% - 270px) * 30 / 100);
+  background: #fff;
+  padding: 4rem 3rem 0 3rem;
+}
+
+.box-add h3 {
+  font-size: 3rem;
+  font-weight: 500;
+  margin-bottom: 5rem;
+}
+
+.box-add form label {
+  font-size: 1.5rem;
+}
+
+.box-add form input {
+  line-height: 3rem !important;
+  font-size: 1.5rem !important;
+}
+
+.box-add form button {
+  font-size: 1.8rem;
+}

@@ -75,8 +75,10 @@ function ListNCC(props) {
     const arr = listNCC.filter((data) => {
       return data.id !== item.id;
     });
-    setNhaCungCap(arr);
-    writeDataTable(arr, 'tblNhaCungCap');
+    if (window.confirm('Bạn có chắc muốn xóa')) {
+      setNhaCungCap(arr);
+      writeDataTable(arr, 'tblNhaCungCap');
+    }
   };
 
   const inputSearch = useRef(null);

@@ -111,8 +111,10 @@ function ListChauCay(props) {
     const newArr = listChauCay.filter((data) => {
       return data.id !== item.id;
     });
-    setChauCay(newArr);
-    writeDataTable(newArr, 'tblChauCay');
+    if (window.confirm('Bạn có chắc muốn xóa')) {
+      setChauCay(newArr);
+      writeDataTable(newArr, 'tblChauCay');
+    }
   };
 
   const searchChauCay = (e) => {

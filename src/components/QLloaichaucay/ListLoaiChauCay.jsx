@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useEffect, useRef, useState } from 'react/cjs/react.development';
 import { Context } from '../../contexts/Context';
+import './styles.css';
 
 function ListLoaiChauCay(props) {
   const { getTblLoaiChauCay, getTableId, setLoaiChauCay, writeDataTable, loaiChauCay } =
@@ -48,8 +49,10 @@ function ListLoaiChauCay(props) {
     const arr = listLoaiChau.filter((data) => {
       return data.id !== item.id;
     });
-    setLoaiChauCay(arr);
-    writeDataTable(arr, 'tblLoaiChauCay');
+    if (window.confirm('Bạn có chắc muốn xóa')) {
+      setLoaiChauCay(arr);
+      writeDataTable(arr, 'tblLoaiChauCay');
+    }
   };
 
   const searchLoaiChau = (e) => {

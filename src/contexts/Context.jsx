@@ -92,18 +92,19 @@ const ContextProvider = ({ children }) => {
     storage.ref(ref).delete();
   };
 
-  // const dataTaiKhoan = [
+  // const dataPhieuNhap = [
   //   {
   //     id: Date.now(),
-  //     tentaikhoan: 'Trinh Duc Khanh',
-  //     tendangnhap: 'khanh',
-  //     matkhau: 'khanh123',
-  //     loaitaikhoan: 'Quản lý',
+  //     maPhieuNhap: '1636473054746',
+  //     tenchaucay: 'chau bon sai',
+  //     soluong: 2,
+  //     dongia: 45000,
+  //     thanhtien: 90000,
   //   },
   // ];
 
   // useEffect(() => {
-  //   writeDataTable(dataTaiKhoan, 'tblTaiKhoan');
+  //   writeDataTable(dataPhieuNhap, 'tblCTPhieuNhap');
   // }, []);
 
   // get Tournament By Id

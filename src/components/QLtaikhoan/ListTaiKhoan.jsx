@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useEffect, useRef, useState } from 'react/cjs/react.development';
 import { Context } from '../../contexts/Context';
+import './styles.css';
 
 function ListTaiKhoan(props) {
   const {
@@ -90,8 +91,10 @@ function ListTaiKhoan(props) {
     const newArr = listTK.filter((data) => {
       return data.id !== item.id;
     });
-    setTaiKhoan(newArr);
-    writeDataTable(newArr, 'tblTaiKhoan');
+    if (window.confirm('Bạn có chắc muốn xóa')) {
+      setTaiKhoan(newArr);
+      writeDataTable(newArr, 'tblTaiKhoan');
+    }
   };
 
   const handleSearch = (e) => {

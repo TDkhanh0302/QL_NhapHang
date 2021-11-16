@@ -1,28 +1,68 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { useHistory } from 'react-router';
+import { useEffect, useRef } from 'react/cjs/react.development';
+import { Context } from '../../contexts/Context';
+import './styles.css';
 
 function FormLogin(props) {
-  return (
-    <div>
-      <form action="" method="POST" className="form" id="form-1">
-        <h3 className="heading">Form đăng nhập</h3>
+  const { getTblTaiKhoan, taiKhoan, writeDataTable } = useContext(Context);
+  const history = useHistory();
+  useEffect(() => {
+    getTblTaiKhoan();
+  }, []);
 
-        <div className="form-group invalid">
-          <label for="username" className="form-label">
+  const inputTenDN = useRef(null);
+  const inputMatKhau = useRef(null);
+  const errPasswordRef = useRef(null);
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const username = inputTenDN.current.value;
+    const password = inputMatKhau.current.value;
+    const listUser = [...taiKhoan];
+
+    listUser.forEach((item) => {
+      if (item.tendangnhap === username && item.matkhau == password) {
+        console.log('dang nhap thanh cong');
+        writeDataTable(item, 'userLogged');
+        history.push('/nhacungcap');
+      } else {
+        errPasswordRef.current.innerText = 'Sai tên đăng nhập hoặc mật khẩu';
+        errPasswordRef.current.style.display = 'block';
+        inputTenDN.current.focus();
+      }
+    });
+  };
+
+  return (
+    <div className="login-form">
+      <form onSubmit={handleLogin}>
+        <h2 className="heading">Form đăng nhập</h2>
+
+        <div className="mb-4">
+          <label htmlFor="tenDN" className="form-label">
             Tên đăng nhập
           </label>
-          <input required="" id="username" name="username" type="text" className="form-control" />
-          <span className="form-message">chỉ được phép nhập chữ</span>
+          <input ref={inputTenDN} type="text" className="form-control" id="tenDN" required />
         </div>
 
-        <div className="form-group invalid">
-          <label for="password" className="form-label">
+        <div className="mb-4">
+          <label htmlFor="matkhau" className="form-label">
             Mật khẩu
           </label>
-          <input required="" id="password" name="password" type="text" className="form-control" />
-          <span className="form-message">chỉ được phép nhập chữ</span>
+          <input
+            ref={inputMatKhau}
+            type="password"
+            className="form-control"
+            id="matkhau"
+            required
+          />
+          <span ref={errPasswordRef} className="err_message"></span>
         </div>
 
-        <button className="form-submit">Đăng nhập</button>
+        <button type="submit" className="btn btn-primary btn-lg">
+          Đăng nhập
+        </button>
       </form>
     </div>
   );

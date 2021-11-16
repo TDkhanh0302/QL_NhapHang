@@ -83,8 +83,10 @@ function ListNhanVien(props) {
     const newArr = listNV.filter((data) => {
       return data.id !== item.id;
     });
-    setNhanVien(newArr);
-    writeDataTable(newArr, 'tblNhanVien');
+    if (window.confirm('Bạn có chắc muốn xóa')) {
+      setNhanVien(newArr);
+      writeDataTable(newArr, 'tblNhanVien');
+    }
   };
 
   const handleSearch = (e) => {
