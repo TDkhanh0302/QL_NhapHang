@@ -21,7 +21,7 @@ function FormLogin(props) {
     const password = inputMatKhau.current.value;
     const listUser = [...taiKhoan];
 
-    listUser.forEach((item) => {
+    listUser?.forEach((item) => {
       if (item.tendangnhap === username && item.matkhau == password) {
         console.log('dang nhap thanh cong');
         writeDataTable(item, 'userLogged');

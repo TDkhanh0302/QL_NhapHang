@@ -19,15 +19,15 @@ function Slidebar(props) {
   const refThongKe = useRef(null);
 
   const checkUserLogged = () => {
-    // if (userLogged?.loaitaikhoan == 'Quản lý') {
-    //   qlNhanVien.current.style.visibility = 'visible';
-    //   qlTaiKhoan.current.style.visibility = 'visible';
-    //   refThongKe.current.style.visibility = 'visible';
-    // } else {
-    //   qlNhanVien.current.style.visibility = 'hidden';
-    //   qlTaiKhoan.current.style.visibility = 'hidden';
-    //   refThongKe.current.style.visibility = 'hidden';
-    // }
+    if (userLogged?.loaitaikhoan == 'Quản lý') {
+      qlNhanVien.current.style.visibility = 'visible';
+      qlTaiKhoan.current.style.visibility = 'visible';
+      refThongKe.current.style.visibility = 'visible';
+    } else {
+      qlNhanVien.current.style.visibility = 'hidden';
+      qlTaiKhoan.current.style.visibility = 'hidden';
+      refThongKe.current.style.visibility = 'hidden';
+    }
   };
 
   const handleLogout = () => {
@@ -77,7 +77,7 @@ function Slidebar(props) {
             </Link>
           </li>
           <li ref={refThongKe} className="nav__item">
-            <i className="fas fa-key"></i>
+            <i className="fas fa-chart-bar"></i>
             <Link to="/thongke" className="nav__link">
               Thống kê phiếu nhập
             </Link>

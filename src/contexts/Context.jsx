@@ -104,8 +104,9 @@ const ContextProvider = ({ children }) => {
   // ];
 
   // useEffect(() => {
-  //   writeDataTable(dataPhieuNhap, 'tblCTPhieuNhap');
+  //   getTblTaiKhoan();
   // }, []);
+  // console.log(taiKhoan);
 
   // get Tournament By Id
   const getTableId = (id, table) => {
